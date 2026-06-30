@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>As músicas que me lembram você ❤️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Camada de partículas brilhantes no fundo -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Camada de confetes (abertura + surpresa final) -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="app">
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">♪</span>
+        <span class="brand-name">Replay</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active">
+          <span class="nav-icon">⌂</span> Início
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">🔍</span> Buscar
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">📚</span> Sua Biblioteca
+        </a>
+      </nav>
+
+      <div class="sidebar-playlist">
+        <p class="sidebar-label">PLAYLIST CRIADA PARA VOCÊ</p>
+        <div class="sidebar-playlist-card active-card">
+          <span class="mini-cover">💚</span>
+          <div>
+            <strong>As músicas que me lembram você</strong>
+            <span>Playlist • para minha amiga</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="surprise-box">
+        <button id="surpriseBtn" class="surprise-btn">
+          Uma última surpresa ❤️
+        </button>
+      </div>
+    </aside>
+
+    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+    <main class="main-content">
+
+      <header class="top-bar">
+        <div class="top-bar-nav">
+          <button class="round-btn">‹</button>
+          <button class="round-btn">›</button>
+        </div>
+        <div class="top-bar-profile">
+          <span class="profile-pill">🎂 Feliz Aniversário</span>
+        </div>
+      </header>
+
+      <section class="playlist-hero">
+        <div class="playlist-cover-wrap">
+          <div class="playlist-cover">
+            <span>📸</span>
+          </div>
+        </div>
+        <div class="playlist-info">
+          <span class="playlist-type">PLAYLIST PARA UM PRESENTE</span>
+          <h1 class="playlist-title">As músicas que me lembram você ❤️</h1>
+          <p class="playlist-description">Uma pequena coleção de músicas, memórias e momentos especiais.</p>
+          <div class="playlist-meta">
+            <span class="meta-author">Feita com carinho para <strong id="friendName">[Nome da Aniversariante]</strong></span>
+            <span class="meta-dot">•</span>
+            <span id="songCount">5 músicas</span>
+            <span class="meta-dot">•</span>
+            <span id="totalDuration">cerca de 18 min</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="action-bar">
+        <button id="playAllBtn" class="play-main-btn" aria-label="Tocar playlist">▶</button>
+        <button class="icon-btn" title="Curtir">♡</button>
+        <button class="icon-btn" title="Mais opções">⋯</button>
+      </section>
+
+      <!-- ===================== LISTA DE MÚSICAS ===================== -->
+      <section class="track-list" id="trackList">
+        <div class="track-list-header">
+          <span>#</span>
+          <span>TÍTULO</span>
+          <span class="hide-mobile">MOMENTO</span>
+          <span class="duration-col">⏱</span>
+        </div>
+        <!-- As faixas são geradas via JavaScript a partir de songs[] em script.js -->
+      </section>
+
+    </main>
+
+    <!-- ===================== PAINEL DE MEMÓRIAS ===================== -->
+    <aside class="memory-panel" id="memoryPanel">
+      <div class="memory-photo-wrap">
+        <img id="memoryPhoto" class="memory-photo" src="" alt="Foto da memória">
+        <div class="memory-photo-fallback" id="memoryPhotoFallback">🖼️</div>
+      </div>
+      <div class="memory-text-wrap">
+        <span class="memory-tag" id="memoryTag">MOMENTO 1</span>
+        <h3 class="memory-title" id="memoryTitle">Como tudo começou</h3>
+        <p class="memory-text" id="memoryText">
+          Clique em uma música para reviver um pedacinho da nossa história.
+        </p>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- ===================== PLAYER INFERIOR ===================== -->
+  <footer class="player-bar">
+    <div class="player-track-info">
+      <div class="player-cover">
+        <img id="playerCoverImg" src="" alt="Capa da música">
+        <span id="playerCoverFallback">🎵</span>
+      </div>
+      <div class="player-track-text">
+        <span id="playerSongName" class="player-song-name">Selecione uma música</span>
+        <span id="playerArtistName" class="player-artist-name">para começar a ouvir</span>
+      </div>
+      <button class="like-btn" title="Curtir música">♡</button>
+    </div>
+
+    <div class="player-controls">
+      <div class="player-buttons">
+        <button id="shuffleBtn" class="ctrl-btn" title="Aleatório">🔀</button>
+        <button id="prevBtn" class="ctrl-btn" title="Anterior">⏮</button>
+        <button id="playPauseBtn" class="play-btn" title="Tocar/Pausar">▶</button>
+        <button id="nextBtn" class="ctrl-btn" title="Próxima">⏭</button>
+        <button id="repeatBtn" class="ctrl-btn" title="Repetir">🔁</button>
+      </div>
+      <div class="progress-row">
+        <span id="currentTime" class="time-label">0:00</span>
+        <div class="progress-bar-wrap" id="progressBarWrap">
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressBarFill"></div>
+            <div class="progress-bar-handle" id="progressBarHandle"></div>
+          </div>
+        </div>
+        <span id="totalTime" class="time-label">0:00</span>
+      </div>
+    </div>
+
+    <div class="player-extra">
+      <span class="volume-icon" id="volumeIcon">🔊</span>
+      <div class="volume-bar-wrap" id="volumeBarWrap">
+        <div class="volume-bar-bg">
+          <div class="volume-bar-fill" id="volumeBarFill"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Elemento de áudio real, controlado via JavaScript -->
+  <audio id="audioPlayer" preload="metadata"></audio>
+
+  <!-- ===================== TELA DA SURPRESA FINAL ===================== -->
+  <div class="surprise-overlay" id="surpriseOverlay">
+    <canvas id="surprise-confetti-canvas"></canvas>
+    <div class="surprise-content">
+      <div class="envelope" id="envelope">
+        <span class="envelope-icon">💌</span>
+      </div>
+      <div class="letter-card" id="letterCard">
+        <p id="letterText" class="letter-text"></p>
+        <span class="letter-cursor" id="letterCursor">|</span>
+      </div>
+      <div class="balloons" id="balloons"></div>
+      <button id="closeSurpriseBtn" class="close-surprise-btn">Voltar para a playlist</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

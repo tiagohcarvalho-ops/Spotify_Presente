@@ -83,8 +83,7 @@ const songs = [
 const LETTER_TEXT =
 `Vi, eu só tenho a agradecer por ter você na minha vida. Desde o dia em que você chegou me chamando para ver duas horas de um filme de uma mulher apanhando, eu senti que tinha algo diferente, e hoje estamos aqui.\n\n` +
 `Muitas vezes eu não entendo por que você dá tanto valor ao que eu penso sobre as coisas, por que dá tanta importância às minhas opiniões ou até mesmo por que você dá tanto valor a mim. Mas, graças a Deus, você dá esse valor. Vii, você é uma das maiores conquistas da minha vida, e é imensurável o quanto eu me sinto bem só por saber que posso falar com você a qualquer hora ou simplesmente por você existir. Obrigado, Vitória, por simplesmente existir.\n\n` +
-`Enfim, feliz aniversário! 🎉\n\n` +
-`Aproveita muito o seu dia e espero que possamos viver muito mais momentos musicais juntos kkkkk.\n\n` +
+`Enfim, feliz aniversário! 🎉 Aproveita muito o seu dia e espero que possamos viver muito mais momentos musicais juntos kkkkk.\n\n` +
 `Continuarei aqui por você até onde Deus permitir. Eu te amo absurdamente, Samir. 💚\n\n` +
 `E repito: sai logo da BCT, que a gente ainda tem que beber pinga. 🍻`;
 
